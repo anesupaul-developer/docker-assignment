@@ -1,0 +1,6 @@
+.editorconfig
+/.fleet
+/.idea
+/.vscode
+infrastructure/
+node_modules
