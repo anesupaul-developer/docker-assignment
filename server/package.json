@@ -1,0 +1,33 @@
+{
+  "name": "building-an-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha __tests__/*_test.js --require __tests__/helper.js --recursive --exit",
+    "seed": "node db/seed.js",
+    "start": "npx nodemon index.js",
+    "build": "cd client; npm run build; cd .."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.15",
+    "mongoose-hidden": "^1.9.1",
+    "mongoose-unique-validator": "^2.0.3",
+    "react-multivalue-text-input": "^0.6.2",
+    "validator": "^13.5.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "mocha": "^8.3.0",
+    "supertest": "^6.1.3"
+  }
+}
