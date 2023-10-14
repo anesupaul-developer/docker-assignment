@@ -13,9 +13,6 @@ import UserRecipes from './components/UserRecipes'
 import SearchResults from './components/SearchResults'
 import Footer from './components/Footer'
 import AddRecipeModal from './components/AddRecipe/AddRecipeModal'
-
-
-
 import 'bulma'
 import './styles/style.scss'
 
@@ -39,5 +36,3 @@ const App = () => (
 )
 
 export default App
-
-

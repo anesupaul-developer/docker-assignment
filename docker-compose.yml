@@ -2,21 +2,27 @@ version: "3"
 services:
   frontend-app:
     image: frontend-app
-    stdin_open: true
+    container_name: frontend
+    tty: true
+    restart: always
     ports: 
       - "3000:3000"
     networks:
       - application-network
   backend-app:
     image: backend-app
+    container_name: backend
     ports:
       - "5000:5000"
+    restart: always
     networks:
       - application-network
     depends_on:
       - mongo
   mongo:
     image: mongo:3.6.19-xenial
+    container_name: mongo
+    tty: true
     ports:
       - "27017:27017"
     networks:

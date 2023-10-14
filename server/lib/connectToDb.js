@@ -9,5 +9,11 @@ export default function connectToDb() {
     useUnifiedTopology: true
   }
 
-  return mongoose.connect(dbURI, options)
+  try {
+    console.log('Testing application log ...............')
+    return mongoose.connect(dbURI, options)
+  } catch(err) {
+    console.log('Error ;.....................................................................................')
+    console.log(err)
+  }
 }
