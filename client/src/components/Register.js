@@ -46,7 +46,7 @@ export default function Register({ history }) {
   function handleSubmit(event) {
     event.preventDefault()
     try {
-      const { data } = axios.post('http://localhost:5000/api/register', formData)
+      const { data } = axios.post('/api/register', formData)
       history.push('/login')
     } catch (err) {
       const errorMessage = err.response.data

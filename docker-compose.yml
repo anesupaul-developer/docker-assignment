@@ -19,6 +19,10 @@ services:
     restart: always
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/localhost.crt:/etc/nginx/ssl/localhost.crt
+      - ./nginx/localhost.key:/etc/nginx/ssl/localhost.key
     links:
       - expressapi
       - expressweb

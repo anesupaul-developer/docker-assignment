@@ -13,7 +13,7 @@ export default function ShuffleCarousel() {
   //get one random recipe
   async function getThoseRecipes() {
     try {
-      const { data } = await axios.get('http://localhost:5000/api/random-recipe')
+      const { data } = await axios.get('/api/random-recipe')
       dataArray.push(data)//pushes the recipe to the dataArray 
     }
     catch (err) {
