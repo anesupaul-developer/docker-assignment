@@ -14,7 +14,7 @@ export default function PostReview(props) {
 
 
   async function handleReview() {
-    await axios.post(`/api/recipes/${recipes._id}/review`, { text: text, rating: rating }, {
+    await axios.post(`http://localhost:5000/api/recipes/${recipes._id}/review`, { text: text, rating: rating }, {
       headers: { Authorization: `Bearer ${token}` }
     })
     props.fetchRecipe()
@@ -23,7 +23,7 @@ export default function PostReview(props) {
 
 
   async function handleDeleteReview(reviewId) {
-    await axios.delete(`/api/recipes/${recipes._id}/review/${reviewId}`, {
+    await axios.delete(`http://localhost:5000/api/recipes/${recipes._id}/review/${reviewId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     props.fetchRecipe()
@@ -35,12 +35,12 @@ export default function PostReview(props) {
     setToggle(event.target.checked)
     try {
       if (toggle === false) {
-        await axios.put(`/api/myrecipes/${recipeId}`, {}, {
+        await axios.put(`http://localhost:5000/api/myrecipes/${recipeId}`, {}, {
           headers: { Authorization: `Bearer ${authToken}` }
         })
         props.fetchRecipe()
       } else {
-        await axios.put(`/api/myrecipes/unstar/${recipeId}`, {}, {
+        await axios.put(`http://localhost:5000/api/myrecipes/unstar/${recipeId}`, {}, {
           headers: { Authorization: `Bearer ${authToken}` }
         })
         props.fetchRecipe()

@@ -80,7 +80,7 @@ export default function AddRecipeModal({ history }) {
     }
 
     try {
-      const { data } = await axios.post('/api/recipes', newFormData, {
+      const { data } = await axios.post('http://localhost:5000/api/recipes', newFormData, {
         headers: { Authorization: `Bearer ${token}` }
       })
       //!! PUSH USER RECIPE THEY HAVE JUST CREATED

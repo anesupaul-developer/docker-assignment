@@ -30,7 +30,7 @@ export default function EditRecipeModal(props) {
 
   // ! Get request to populate form fields
   useEffect(() => {
-    axios.get(`/api/recipes/${recipeId}`, {
+    axios.get(`http://localhost:5000/api/recipes/${recipeId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(({ data }) => {
@@ -101,7 +101,7 @@ export default function EditRecipeModal(props) {
     }
 
     try {
-      const { data } = await axios.put(`/api/recipes/${recipeId}`, newFormData, {
+      const { data } = await axios.put(`http://localhost:5000/api/recipes/${recipeId}`, newFormData, {
         headers: { Authorization: `Bearer ${token}` }
       })
 
@@ -116,7 +116,7 @@ export default function EditRecipeModal(props) {
 
   async function handleDelete(recipeId) {
     const token = localStorage.getItem('token')
-    await axios.delete(`/api/recipes/${recipeId}`, {
+    await axios.delete(`http://localhost:5000/api/recipes/${recipeId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     history.push('/recipes')

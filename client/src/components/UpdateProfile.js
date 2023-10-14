@@ -17,7 +17,7 @@ export default function UpdateProfileModal(props) {
 
   // ! Get request to populate form fields
   useEffect(() => {
-    axios.get(`/api/user/${getLoggedInUserId()}`, {
+    axios.get(`http://localhost:5000/api/user/${getLoggedInUserId()}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(({ data }) => {
@@ -68,7 +68,7 @@ export default function UpdateProfileModal(props) {
     event.preventDefault()
     const token = localStorage.getItem('token')
     try {
-      const { data } = axios.put(`/api/user/${getLoggedInUserId()}`, formData, {
+      const { data } = axios.put(`http://localhost:5000/api/user/${getLoggedInUserId()}`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       })
       history.push('/')

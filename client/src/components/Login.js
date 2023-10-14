@@ -17,7 +17,7 @@ export default function Login({ history }) {
   async function handleSubmit(event) {
     event.preventDefault()
     try {
-      const { data } = await axios.post('/api/login', formData)
+      const { data } = await axios.post('http://localhost:5000/api/login', formData)
       if (localStorage) {
         localStorage.setItem('token', data.token)
       }

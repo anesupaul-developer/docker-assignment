@@ -18,7 +18,7 @@ export default function myAccount({ match }) {
   useEffect(() => {
     async function getUserRecipes() {
       try {
-        const { data } = await axios.get(`/api/user/${getLoggedInUserId()}`, {
+        const { data } = await axios.get(`http://localhost:5000/api/user/${getLoggedInUserId()}`, {
           headers: { Authorization: `Bearer ${token}` }
         })
         updatePosted(data.postedRecipes)

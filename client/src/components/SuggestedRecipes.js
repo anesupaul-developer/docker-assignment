@@ -9,7 +9,7 @@ export default function GetSuggested() {
 
   async function getSuggestedRecipes(suggestedArray) {
     try {
-      const { data } = await axios.get('/api/random-recipe')
+      const { data } = await axios.get('http://localhost:5000/api/random-recipe')
       suggestedArray.push(data)//pushes the recipe to the Array 
     } catch (err) {
       console.log(err)

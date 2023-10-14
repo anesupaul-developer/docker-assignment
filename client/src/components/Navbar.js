@@ -12,7 +12,7 @@ const Navbar = ({ history }) => {
 
   // ! Get request to say hello to user
   // useEffect(() => {
-  //   axios.get(`/api/user/${getLoggedInUserId()}`, {
+  //   axios.get(`http://localhost:5000/api/user/${getLoggedInUserId()}`, {
   //     headers: { Authorization: `Bearer ${token}` }
   //   })
   //     .then(({ data }) => {

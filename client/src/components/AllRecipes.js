@@ -37,7 +37,7 @@ const AllRecipes = ({ history }) => {
 
   // ! This is for the all recipe display
   useEffect(() => {
-    axios.get('/api/recipes')
+    axios.get('http://localhost:5000/api/recipes')
       .then(({ data }) => {
         updateRecipeData(data)
         updateLoading(false)

@@ -20,7 +20,7 @@ const SingleRecipe = ({ match, history }) => {
 
   async function fetchRecipe() {
     try {
-      const { data } = await axios.get(`/api/recipes/${recipeId}`)
+      const { data } = await axios.get(`http://localhost:5000/api/recipes/${recipeId}`)
       updateRecipe(data)
     } catch (err) {
       console.log(err)

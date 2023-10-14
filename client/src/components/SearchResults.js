@@ -8,7 +8,7 @@ const SearchResults = ({ location, history }) => {
   const [filterSelected, updateFilterSelected] = useState('All')
 
   useEffect(() => {
-    axios.get('/api/search', { params: { q: searchData } })
+    axios.get('http://localhost:5000/api/search', { params: { q: searchData } })
       .then(({ data }) => {
         updateRecipeData(data)
       })
@@ -18,7 +18,7 @@ const SearchResults = ({ location, history }) => {
   async function handleSubmit(event) {
     event.preventDefault()
     try {
-      const { data } = await axios.get('/api/search', { params: { q: searchData } })
+      const { data } = await axios.get('http://localhost:5000/api/search', { params: { q: searchData } })
       updateRecipeData(data)
       history.push({ pathname: '/search', state: searchData })
       updateFilterSelected('All')

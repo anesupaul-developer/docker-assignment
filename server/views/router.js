@@ -7,6 +7,7 @@ import user from '../controllers/user.js'
 const router = express.Router()
 
 import secureRoute from '../middleware/secureRoute.js'
+import Recipes from "../models/recipeSchema.js";
 
 router.route('/register')
   .post(user.register)

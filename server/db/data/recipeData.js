@@ -9,13 +9,11 @@ export default function getRecipeData(user) {
   try {
     for (let i = 0; i < keywords.length; i++) {
       promises.push(new Promise((resolve) => {
-        const timeoutNumber = 20000 * i
+        const timeoutNumber = 10000 * i
         setTimeout(() => {
           const url = `https://api.edamam.com/search?q=${keywords[i]}&app_id=${id}&app_key=${key}&from=0&to=100`;
-          console.log(url)
           axios.get(url)
               .then(({ data }) => {
-                console.log(data);
                 const recipeObj = data.hits.map(objRecipe => {
                   return {
                     recipeName: objRecipe.recipe.label,

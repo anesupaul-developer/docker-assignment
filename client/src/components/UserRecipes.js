@@ -15,7 +15,7 @@ export default function UserRecipes(props) {
   useEffect(() => {
     async function getUserRecipes() {
       try {
-        const { data } = await axios.get(`/api/user/${userId}`, {
+        const { data } = await axios.get(`http://localhost:5000/api/user/${userId}`, {
         })
         updatePosted(data.postedRecipes)
         updateSaved(data.savedRecipes)

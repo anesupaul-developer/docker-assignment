@@ -9,7 +9,7 @@ const Home = ({ history }) => {
 
 
   useEffect(() => {
-    axios.get('/api/random-recipe')
+    axios.get('http://localhost:5000/api/random-recipe')
       .then(({ data }) => {
         updateRecipeData(data)
       })
