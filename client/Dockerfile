@@ -1,15 +1,20 @@
-FROM node:14-slim
+FROM node:14-slim AS builder
 
-RUN mkdir -p /usr/src/app
-
-WORKDIR /usr/src/app
-
-COPY ./package.json ./
-
-RUN npm install
+WORKDIR /app
 
 COPY . .
 
-EXPOSE 3000
+RUN npm i && npm run build
 
-CMD [ "npm", "start" ]
+FROM nginx:alpine
+
+WORKDIR /usr/share/nginx/html
+
+RUN rm -rf ./*
+
+COPY --from=builder /app/dist/ .
+
+RUN chown nginx:nginx /usr/share/nginx/html/*
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+

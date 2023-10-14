@@ -13,7 +13,7 @@ module.exports = () => {
     entry: './src/index.js',
     output: {
       filename: 'bundle.js',
-      path: path.resolve('../dist'),
+      path: path.resolve('./dist'),
       publicPath: '/'
     },
     module: {
@@ -33,7 +33,7 @@ module.exports = () => {
       historyApiFallback: true,
       proxy: {
         '/api': {
-          target: 'http://localhost:8000',
+          target: 'http://localhost:5000',
           secure: false
         }
       }

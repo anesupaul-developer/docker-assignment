@@ -1,37 +1,24 @@
 version: "3"
 services:
-  frontend-app:
-    image: frontend-app
-    container_name: frontend
-    tty: true
-    restart: always
-    ports: 
-      - "3000:3000"
-    networks:
-      - application-network
-  backend-app:
-    image: backend-app
-    container_name: backend
+  mongodb_dev:
+    image: "mongo"
+  expressapi:
+    build: ./server
     ports:
       - "5000:5000"
-    restart: always
-    networks:
-      - application-network
-    depends_on:
-      - mongo
-  mongo:
-    image: mongo:3.6.19-xenial
-    container_name: mongo
-    tty: true
+    expose:
+      - "5000"
+    links:
+      - mongodb_dev
+  expressweb:
+    build: ./client
     ports:
-      - "27017:27017"
-    networks:
-      - application-network
-    volumes:
-      - mongo-data:/data/db
-networks:
-  application-network:
-    driver: bridge
-volumes:
-  mongo-data:
-    driver: local
+      - "4300:80"
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - "80:80"
+    links:
+      - expressapi
+      - expressweb

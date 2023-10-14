@@ -1,14 +1,13 @@
 FROM node:14-slim
 
-WORKDIR /usr/src/app
+WORKDIR /usr/meanserver
 
-COPY ./package.json ./
-COPY ./package-lock.json ./
+COPY ./ ./
 
 RUN npm install
 
-COPY . .
+RUN npm install -g concurrently
 
 EXPOSE 5000
 
-CMD [ "index.js" ]
+CMD ["concurrently","npm:start", "npm:seed"]

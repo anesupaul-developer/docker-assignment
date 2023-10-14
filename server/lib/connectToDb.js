@@ -10,7 +10,6 @@ export default function connectToDb() {
   }
 
   try {
-    console.log('Testing application log ...............')
     return mongoose.connect(dbURI, options)
   } catch(err) {
     console.log('Error ;.....................................................................................')

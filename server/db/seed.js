@@ -40,4 +40,4 @@ async function seedDatabase() {
   }
 }
 
-seedDatabase()
+await seedDatabase();
